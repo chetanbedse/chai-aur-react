@@ -49,3 +49,7 @@
 .action-btn:hover {
   filter: brightness(150%);
 }
+
+.welcome {
+  cursor: pointer;
+}
