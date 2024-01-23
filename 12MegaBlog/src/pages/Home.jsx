@@ -27,11 +27,14 @@ function Home() {
     );
   }
   return (
-    <div className="w-full py-8">
+    <div className="w-full">
+      <div className="bg-[#b75660] py-12">
+        <h1 className="text-center text-white font-semibold text-4xl">Blogs</h1>
+      </div>
       <Container>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap py-8 mx-20">
           {posts.map((post) => (
-            <div key={post.$id} className="p-2 w-1/4">
+            <div key={post.$id} className="p-2 w-1/3">
               <PostCard {...post} />
             </div>
           ))}

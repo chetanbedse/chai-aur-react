@@ -1,9 +1,9 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */
 
 .logo {
   height: 6em;
@@ -16,6 +16,16 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+p,
+h1,
+h2 {
+  padding-bottom: 15px;
+}
+
+ol {
+  list-style: decimal !important;
 }
 
 @keyframes logo-spin {

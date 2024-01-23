@@ -77,7 +77,7 @@ export default function PostForm({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap py-8 mx-20">
       <div className="w-2/3 px-2">
         <Input
           label="Title :"
@@ -123,7 +123,7 @@ export default function PostForm({ post }) {
         <Select
           options={["active", "inactive"]}
           label="Status"
-          className="mb-4"
+          className="mb-4 capitalize"
           {...register("status", { required: true })}
         />
         <Button

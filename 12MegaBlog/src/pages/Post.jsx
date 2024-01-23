@@ -33,32 +33,43 @@ export default function Post() {
   };
 
   return post ? (
-    <div className="py-8">
+    <div>
+      <div className="bg-[#b75660] py-12">
+        <h1 className="text-center text-white font-semibold text-4xl">Blogs</h1>
+      </div>
       <Container>
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-          <img
-            src={appwriteService.getFilePreview(post.featuredImage)}
-            alt={post.title}
-            className="rounded-xl"
-          />
-
+        <div className="py-8 mx-20 flex flex-wrap">
+          <div className="w-2/3 mb-4 border rounded-xl shadow p-2">
+            <img
+              src={appwriteService.getFilePreview(post.featuredImage)}
+              alt={post.title}
+              className="rounded-xl"
+            />
+          </div>
           {isAuthor && (
-            <div className="absolute right-6 top-6">
+            <div className="w-1/3 p-2 text-center">
               <Link to={`/edit-post/${post.$id}`}>
-                <Button bgColor="bg-green-500" className="mr-3">
+                <Button bgColor="bg-green-500" className="w-1/3 mx-2">
                   Edit
                 </Button>
               </Link>
-              <Button bgColor="bg-red-500" onClick={deletePost}>
+              <Button
+                bgColor="bg-red-500"
+                className="w-1/3 mx-2"
+                onClick={deletePost}
+              >
                 Delete
               </Button>
             </div>
           )}
+
+          <div className="w-2/3 mb-6 px-2">
+            <h1 className="text-2xl font-bold text-[#b8565f]">{post.title}</h1>
+            <div className="browser-css text-justify">
+              {parse(post.content)}
+            </div>
+          </div>
         </div>
-        <div className="w-full mb-6">
-          <h1 className="text-2xl font-bold">{post.title}</h1>
-        </div>
-        <div className="browser-css">{parse(post.content)}</div>
       </Container>
     </div>
   ) : null;

@@ -19,7 +19,12 @@ function EditPost() {
     }
   }, [slug, navigate]);
   return post ? (
-    <div className="py-8">
+    <div>
+      <div className="bg-[#b75660] py-12">
+        <h1 className="text-center text-white font-semibold text-4xl">
+          Edit Post
+        </h1>
+      </div>
       <Container>
         <PostForm post={post} />
       </Container>
