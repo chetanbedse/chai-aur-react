@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, PostCard } from "../components";
+import { Container, Loader, PostCard } from "../components";
 import appwriteService from "../appwrite/config";
 
 function AllPosts() {
@@ -11,7 +11,13 @@ function AllPosts() {
       }
     });
   }, []);
-
+  if (posts.length === 0) {
+    return (
+      <div className="mx-auto w-[200px] my-10 p-10">
+        <Loader />
+      </div>
+    );
+  }
   return (
     <div className="w-full">
       <div className="bg-[#b75660] py-12">
@@ -20,9 +26,9 @@ function AllPosts() {
         </h1>
       </div>
       <Container>
-        <div className="flex flex-wrap py-8 mx-20">
+        <div className="flex flex-wrap py-8 mx-auto">
           {posts.map((post) => (
-            <div key={post.$id} className="p-2 w-1/3">
+            <div key={post.$id} className="p-2 w-full md:w-1/2 lg:w-1/3">
               <PostCard {...post} />
             </div>
           ))}
